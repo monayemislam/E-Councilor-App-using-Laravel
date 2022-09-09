@@ -1,5 +1,5 @@
 
-## About Laravel
+## About This E-Councilor App
 
 This project is my lab task. This project has following features
 -User Login
