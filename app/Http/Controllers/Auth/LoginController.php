@@ -34,7 +34,7 @@ class LoginController extends Controller
         if ($userInfo->role == 1) {
             return route('issue-list');
         } else{
-            return route('home');
+            return route('submitted-issue');
         }
     }
 

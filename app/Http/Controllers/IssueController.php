@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Issue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class IssueController extends Controller
 {
@@ -14,8 +16,14 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issueList = Issue::all();
+        $issueList = Issue::with('raiser')->get();
        return view('issue-list',['data'=>$issueList]);
+    }
+
+    public function myIssue(){
+        $userId = auth()->id();
+        $issueList = Issue::where('user_id',$userId)->get();
+       return view('my-issue-list',['data'=>$issueList]);
     }
 
     /**
@@ -25,7 +33,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        //
+        return view('create-issue');
     }
 
     /**
@@ -36,7 +44,17 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required|string',
+            'description'=>'required|required'
+        ]);
+
+        $newIssue = new Issue;
+        $newIssue->user_id = auth()->id();
+        $newIssue->title = $request->title;
+        $newIssue->description = $request->description;
+        $newIssue->save();
+        return Redirect::to('submitted-issue');
     }
 
     /**
