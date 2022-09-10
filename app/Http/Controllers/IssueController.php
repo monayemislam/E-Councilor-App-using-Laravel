@@ -15,7 +15,7 @@ class IssueController extends Controller
     public function index()
     {
         $issueList = Issue::all();
-       return $issueList;
+       return view('issue-list',['data'=>$issueList]);
     }
 
     /**

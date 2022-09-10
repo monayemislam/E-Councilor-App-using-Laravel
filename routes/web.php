@@ -23,5 +23,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Councilor Routes
-Route::get('/issue-list',[IssueController::class,'index'])->middleware('isCouncilor');
+Route::get('/issue-list',[IssueController::class,'index'])->middleware('isCouncilor')->name('issue-list');
 
