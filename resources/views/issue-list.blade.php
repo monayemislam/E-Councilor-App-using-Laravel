@@ -21,11 +21,11 @@
                         @foreach($data as $issue)
                         <tr>
                             <td>{{$id=$id+1;}}</td>
-                            <td>{{$issue->raiser['name']}}</td>
+                            <td>{{$issue->name}}</td>
                             <td>{{$issue->title}}</td>
                             <td>{{$issue->description}}</td>
-                            <td>{{$issue->created_at->toFormattedDateString()}}</td>
-                            <td>{{$issue->updated_at->toFormattedDateString()}}</td>
+                            <td>{{$issue->created_at}}</td>
+                            <td>{{$issue->updated_at}}</td>
                         </tr>
                         @endforeach
                     </tbody>

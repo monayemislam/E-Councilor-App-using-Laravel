@@ -6,6 +6,7 @@ use App\Models\Issue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class IssueController extends Controller
 {
@@ -16,8 +17,17 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issueList = Issue::with('raiser')->get();
-       return view('issue-list',['data'=>$issueList]);
+        $userInfo = Auth::user();
+        $areaNumber = $userInfo['area_number'];
+        // $issueList = Issue::with('raiser')->where('area_number',$areaNumber)->get();
+        $issueList = DB::table('issues')
+            ->join('users', 'issues.user_id', '=', 'users.id')
+            ->select('users.*', 'issues.*')
+            ->where('users.area_number',$areaNumber)
+            ->get();
+        // dd($issueList);
+        return view('issue-list',['data'=>$issueList]);
+        
     }
 
     public function myIssue(){
