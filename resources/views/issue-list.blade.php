@@ -14,6 +14,8 @@
                             <th scope="col">বিস্তারিত বিবরণ</th>
                             <th scope="col">ইস্যু তৈরী হয়েছে</th>
                             <th scope="col">ইস্যু আপডেট হয়েছে</th>
+                            <th scope="col">স্ট্যাটাস</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +28,12 @@
                             <td>{{$issue->description}}</td>
                             <td>{{$issue->created_at}}</td>
                             <td>{{$issue->updated_at}}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button type="button" class="btn btn-success">কমপ্লিট</button>
+                                    <button type="button" class="btn btn-danger">বাতিল</button>
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

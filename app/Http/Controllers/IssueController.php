@@ -56,13 +56,21 @@ class IssueController extends Controller
     {
         $request->validate([
             'title'=>'required|string',
-            'description'=>'required|required'
+            'description'=>'required|required',
+            'document'=>'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
         ]);
 
         $newIssue = new Issue;
+        $userId = auth()->id();
+        $fileName = $userId.'_'.time().'_'.$request->document->getClientOriginalName();
+        $filePath = $request->file('document')->storeAs('issue_attachments', $fileName, 'public');
+        
+        
         $newIssue->user_id = auth()->id();
         $newIssue->title = $request->title;
         $newIssue->description = $request->description;
+        // $newIssue->document = $fileName;
+        $newIssue->file_path = '/storage/' . $filePath;
         $newIssue->save();
         return Redirect::to('submitted-issue');
     }
