@@ -25,7 +25,6 @@ class IssueController extends Controller
             ->select('users.*', 'issues.*')
             ->where('users.area_number',$areaNumber)
             ->get();
-        // dd($issueList);
         return view('issue-list',['data'=>$issueList]);
         
     }
