@@ -6,7 +6,7 @@
         <div class="col-md-11">
             <a href="{{route('submitted-issue')}}" class="btn btn-primary my-4">আগের অভিযোগগুলো দেখতে ক্লিক করুন</a>
             <div>
-                <form method="post" action="{{route('submit-issue')}}">
+                <form method="post" action="{{route('submit-issue')}}" enctype="multipart/form-data">
                 @csrf 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">অভিযোগের টাইটেল</label>
@@ -15,6 +15,10 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">অভিযোগের বিস্তারিত বর্ণনা দিন</label>
                         <textarea class="form-control" name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">নথি সংযুক্ত করুন</label>
+                        <input type="file" class="form-control" name="document">
                     </div>
                     <button type="submit" class="btn btn-success">অভিযোগ দাখিল করুন</button>
                 </form>
