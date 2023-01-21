@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use SweetAlert;
 
 class LoginController extends Controller
 {
@@ -32,8 +33,10 @@ class LoginController extends Controller
     {
         $userInfo = Auth::user();
         if ($userInfo->role == 1) {
+            alert()->success('লগিন সফল হয়েছে', 'স্বাগতম !')->persistent("ঠিক আছে")->autoclose(5000);
             return route('issue-list');
         } else{
+            alert()->success('লগিন সফল হয়েছে', 'স্বাগতম !')->persistent("ঠিক আছে")->autoclose(5000);
             return route('submitted-issue');
         }
     }
