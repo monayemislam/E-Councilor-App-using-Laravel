@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use DB;
+use SweetAlert;
 
 class IssueController extends Controller
 {
@@ -25,7 +26,6 @@ class IssueController extends Controller
             ->select('users.*', 'issues.*')
             ->where('users.area_number',$areaNumber)
             ->get();
-        // dd($issueList);
         return view('issue-list',['data'=>$issueList]);
         
     }
@@ -72,6 +72,7 @@ class IssueController extends Controller
         // $newIssue->document = $fileName;
         $newIssue->file_path = '/storage/' . $filePath;
         $newIssue->save();
+        alert()->success('আপনার অভিযোগটি লিপিবদ্ধ হয়েছে', 'ধন্যবাদ!')->persistent("ঠিক আছে")->autoclose(5000);
         return Redirect::to('submitted-issue');
     }
 
