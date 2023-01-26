@@ -30,3 +30,6 @@ Route::post('/submit-issue',[IssueController::class,'store'])->name('submit-issu
 
 Route::get('/submitted-issue',[IssueController::class,'myIssue'])->name('submitted-issue');
 
+//Report Generation Routes
+Route::get('/all-issues',[IssueController::class,'exportAllIssues'])->name('all-issues');
+
