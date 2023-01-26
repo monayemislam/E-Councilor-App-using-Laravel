@@ -7,7 +7,7 @@
         <a href="{{route('create-issue')}}" class="btn btn-primary my-4">নতুন অভিযোগ জানাতে ক্লিক করুন</a>
             <div>
                 
-                <table class="table table-striped">
+                <table class="table table-striped" id="myListTable">
                     <thead class="bg-success text-white">
                         <tr>
                             <th scope="col">সিরিয়াল</th>
@@ -34,4 +34,9 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready( function () {
+    $('#myListTable').DataTable();
+} );
+</script>
 @endsection
