@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use App\Exports\IssueExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use SweetAlert;
 
 class IssueController extends Controller
@@ -119,5 +121,10 @@ class IssueController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function exportAllIssues() 
+    {
+        return Excel::download(new IssueExport, date('Y-m-d').'-issues.xlsx');
     }
 }
