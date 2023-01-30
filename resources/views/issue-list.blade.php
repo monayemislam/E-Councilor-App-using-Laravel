@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div>
-            <a class="btn btn-primary" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
+            <a class="btn btn-primary mb-2" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
                 <table class="table table-striped">
                     <thead class="bg-success text-white">
                         <tr>

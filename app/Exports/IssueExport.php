@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Issue;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class IssueExport implements FromCollection
@@ -12,7 +13,16 @@ class IssueExport implements FromCollection
     */
     public function collection()
     {
-        return Issue::get(['id','title','description','created_at','updated_at']);
+        $userInfo = Auth::user();
+        return Issue::join('users','users.id','=','issues.user_id')->where('users.area_number','=',$userInfo->area_number)
+                                                                   ->get([
+                                                                   'issues.id',
+                                                                   'users.name',
+                                                                   'issues.title',
+                                                                   'issues.description',
+                                                                   'issues.created_at',
+                                                                   'issues.updated_at'
+                                                                ]);
     }
     
 }

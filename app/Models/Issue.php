@@ -12,6 +12,6 @@ class Issue extends Model
     protected $fillable = ['user_id','title','description'];
 
     public function raiser(){
-    return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
