@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Issue;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class IssueExport implements FromCollection
+class IssueExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -23,6 +24,17 @@ class IssueExport implements FromCollection
                                                                    'issues.created_at',
                                                                    'issues.updated_at'
                                                                 ]);
+    }
+
+    public function headings():array{
+        return [
+            'ISSUE ID',
+            'Name',
+            'Issue Title',
+            'Issue Description',
+            'Created At',
+            'Updated At'
+        ];
     }
     
 }
