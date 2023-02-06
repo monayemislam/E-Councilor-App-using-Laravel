@@ -6,14 +6,14 @@
         <div class="col-md-11">
             <div>
             <a class="btn btn-primary mb-2" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
-                <table class="table table-striped">
+                <table class="table table-striped pt-2" id="submittedIssueListTable">
                     <thead class="bg-success text-white">
                         <tr>
                             <th scope="col">সিরিয়াল</th>
-                            <th scope="col">আবেদনকারীর নাম</th>
+                            <th scope="col">আবেদনকারী</th>
                             <th scope="col">টাইটেল</th>
-                            <th scope="col">বিস্তারিত বিবরণ</th>
-                            <th scope="col">ইস্যু তৈরী হয়েছে</th>
+                            <th scope="col">বিবরণ</th>
+                            <th scope="col">তৈরী হয়েছে</th>
                             <th scope="col">সংযুক্তি</th>
                             <th scope="col">স্ট্যাটাস</th>
 
@@ -52,4 +52,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready( function () {
+    $('#submittedIssueListTable').DataTable();
+} );
+</script>
+
 @endsection
