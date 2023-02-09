@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('dashboard-layout.user-dashboard')
 
 @section('content')
-<div class="container">
+<div>
     <div class="row justify-content-center">
-        <div class="col-md-11">
-            <div>
-            <a class="btn btn-primary mb-2" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
-                <table class="table table-striped pt-2" id="submittedIssueListTable">
-                    <thead class="bg-success text-white">
-                        <tr>
+        <div class="col-md-12">
+            <div class="user-table p-3">
+            <a class="common-btn my-2" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
+                <table class="table table-sm caption-top text-center table-responsive pt-2" id="submittedIssueListTable">
+                    <thead class="">
+                        <tr class="">
                             <th scope="col">সিরিয়াল</th>
                             <th scope="col">আবেদনকারী</th>
                             <th scope="col">টাইটেল</th>
@@ -40,8 +40,8 @@
                             </td>
                             <td>
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-success">কমপ্লিট</button>
-                                    <button type="button" class="btn btn-danger">বাতিল</button>
+                                    <button type="button" class="btn btn-outline-success">কমপ্লিট</button>
+                                    <button type="button" class="btn btn-outline-danger">বাতিল</button>
                                 </div>
                             </td>
                         </tr>
@@ -58,5 +58,17 @@
     $('#submittedIssueListTable').DataTable();
 } );
 </script>
+
+
+
+<!-- <script>
+    var table = $('#submittedIssueListTable').DataTable();
+ 
+ new $.fn.dataTable.Buttons( table, {
+     buttons: [
+         'copy', 'excel', 'pdf'
+     ]
+ } );
+</script> -->
 
 @endsection

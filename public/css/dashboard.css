@@ -1,0 +1,143 @@
+*{
+    padding: 0t;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+/* left sidebar start */
+.dashboard-name{
+  color: #e5e7ea;
+}
+.left-sidebar-wrapper{
+    background-color: #293846 !important;
+    width: 250px;
+    height: 100vh;
+}
+.sidebar-item a{
+    color: #c5c5c5;
+}
+.sidebar-item a:hover{
+    background-color: #263441 !important;
+    color: #fff;
+}
+.left-sidebar-list{
+    background-color: #293846 !important;
+}
+.hide-text{
+  display: block;
+}
+/* Left Sidebar End */
+
+/* dashboard content start */
+.content-wrapper{
+    background-color: #2E3E4E;
+    width: 100%;
+}
+.page-title{
+    color: #c5c5c5;
+}
+.topbar{
+    border-bottom:  1px solid #263441;
+}
+.user-dropdown{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.toggleIcon{
+    cursor: pointer;
+}
+.toggleNavBar{
+    margin-left: -250px;
+    -webkit-transition: margin 1s ease-out;
+    -moz-transition: margin 1s ease-out;
+    -o-transition: margin 1s ease-out;
+    transition: margin 1s ease-out;
+  }
+
+  /* Cards start */
+  .card-parent{
+    background-color: #354759;
+    color: #e5e7ea;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+  }
+  .see-details-btn{
+    color: #e5e7ea;
+  }
+  .see-details-btn:hover{
+    color: #fff;
+  }
+  /* Cards End  */
+
+  /* User Table start */
+  .user-table{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background-color: #354759;
+
+    
+  }
+  .user-table-caption{
+    color: #e5e7ea;
+  }
+  .user-table tr,th, td{
+    color: #e5e7ea;
+    border: none;
+    text-align: center !important;
+  }
+  .user-table tr{
+    border-top: 1px solid #2E3E4E !important;
+    font-size: 12px;
+  }
+  /* User Table End */
+
+  /* Chart start */
+  .transaction-chart{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background-color: #354759;
+    
+  }
+
+  /* Chart End */
+
+
+/* dashboard content end */
+
+
+/* Media Queries Start */
+
+@media (min-width:320px)  {
+  .hide-text{
+    display: none;
+  }
+ }
+@media (min-width:481px)  {
+  .hide-text{
+    display: none;
+  }
+ }
+@media (min-width:641px)  { 
+  .hide-text{
+    display: block;
+  }
+}
+
+/* Media Queries End */
+
+
+/*issue list styles*/
+.common-btn{
+  color: #e5e7ea;
+  border: 1px solid #e5e7ea;
+  background-color: transparent;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.common-btn:hover{
+  color: #000000;
+  border: 1px solid #e5e7ea;
+  background-color: white;
+}
