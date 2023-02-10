@@ -12,7 +12,7 @@
                             <th scope="col">সিরিয়াল</th>
                             <th scope="col">আবেদনকারী</th>
                             <th scope="col">টাইটেল</th>
-                            <th scope="col">বিবরণ</th>
+                            <!-- <th scope="col">বিবরণ</th> -->
                             <th scope="col">তৈরী হয়েছে</th>
                             <th scope="col">সংযুক্তি</th>
                             <th scope="col">বিস্তারিত</th>
@@ -26,7 +26,7 @@
                             <td>{{$id=$id+1;}}</td>
                             <td>{{$issue->name}}</td>
                             <td>{{$issue->title}}</td>
-                            <td>{{$issue->description}}</td>
+                            <!-- <td>{{$issue->description}}</td> -->
                             <td>{{$issue->created_at}}</td>
                             <td>
                             @if (isset($issue->file_path))

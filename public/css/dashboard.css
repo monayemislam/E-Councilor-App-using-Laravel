@@ -186,7 +186,9 @@
   padding: 3px 10px;
   font-size: 12px;
 }
-
+.user-table .dataTables_wrapper .dataTables_paginate .paginate_button{
+  color: #fff !important;
+}
 .user-table .dataTables_filter{
   color: #fff;
 }
