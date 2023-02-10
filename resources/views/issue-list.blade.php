@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="user-table p-3">
-            <a class="common-btn my-2" href="{{ route('all-issues') }}">সকল অভিযোগ ডাউনলোড করুন</a>
-                <table class="table table-sm caption-top text-center table-responsive pt-2" id="submittedIssueListTable">
+            <a class="common-btn my-2" href="{{ route('all-issues') }}"><i class="fa-solid fa-file-arrow-down pe-2"></i>সকল অভিযোগ ডাউনলোড করুন</a>
+                <table class="table table-sm caption-top text-center table-responsive pt-2 row-border stripe" id="submittedIssueListTable">
                     <thead class="">
                         <tr class="">
                             <th scope="col">সিরিয়াল</th>
@@ -15,7 +15,7 @@
                             <th scope="col">বিবরণ</th>
                             <th scope="col">তৈরী হয়েছে</th>
                             <th scope="col">সংযুক্তি</th>
-                            <th scope="col">স্ট্যাটাস</th>
+                            <th scope="col">বিস্তারিত</th>
 
                         </tr>
                     </thead>
@@ -30,8 +30,8 @@
                             <td>{{$issue->created_at}}</td>
                             <td>
                             @if (isset($issue->file_path))
-                                <a href="{{asset($issue->file_path)}}" download>
-                                    Download
+                            <a class="download-btn" href="{{asset($issue->file_path)}}" download>
+                            <i class="fa-solid fa-file-arrow-down pe-2"></i>Download
                                 </a>
                             @endif
                             @if (!isset($issue->file_path))
@@ -39,9 +39,8 @@
                             @endif
                             </td>
                             <td>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-outline-success">কমপ্লিট</button>
-                                    <button type="button" class="btn btn-outline-danger">বাতিল</button>
+                                <div>
+                                    <a href="#" class="details-btn"><i class="fa-regular fa-eye pe-2"></i>বিস্তারিত</a>
                                 </div>
                             </td>
                         </tr>

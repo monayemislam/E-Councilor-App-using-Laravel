@@ -8,7 +8,7 @@
             <i class="fa-solid fa-gauge pe-2"></i>
             <span class="hide-text">ড্যাশবোর্ড</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
+        <a href="{{route('issue-list')}}" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
             <i class="fa-solid fa-list pe-2"></i>
             <span class="hide-text">নতুন অভিযোগ</span>
         </a>
