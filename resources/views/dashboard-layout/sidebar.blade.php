@@ -16,7 +16,7 @@
             <i class="fa-solid fa-list-check pe-2" aria-hidden="true"></i>
             <span class="hide-text">সমাধানকৃত অভিযোগ</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
+        <a href="{{route('issue-rejected')}}" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
             <i class="fa-regular fa-rectangle-xmark pe-2"></i>
             <span class="hide-text">বাতিলকৃত অভিযোগ</span>
         </a>
