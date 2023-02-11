@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IssueController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Councilor Routes
+Route::get('overview',[DashboardController::class,'index'])->middleware('isCouncilor')->name('overview');
 Route::get('/issue-list',[IssueController::class,'index'])->middleware('isCouncilor')->name('issue-list');
 Route::get('issue-solved',[IssueController::class,'solvedIssues'])->middleware('isCouncilor')->name('issue-solved');
 Route::get('issue-rejected',[IssueController::class,'rejectedIssues'])->middleware('isCouncilor')->name('issue-rejected');

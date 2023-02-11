@@ -4,7 +4,7 @@
         <h3 class="dashboard-name text-center hide-text">ই-কাউন্সিলর</h3>
     </div>
     <div class="list-group list-group-flush sidebar-item">
-        <a href="#" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
+        <a href="{{route('overview')}}" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
             <i class="fa-solid fa-gauge pe-2"></i>
             <span class="hide-text">ড্যাশবোর্ড</span>
         </a>
