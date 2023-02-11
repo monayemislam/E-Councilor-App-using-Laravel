@@ -32,6 +32,19 @@ class IssueController extends Controller
         
     }
 
+    public function solvedIssues(){
+        $userInfo = Auth::user();
+        $areaNumber = $userInfo['area_number'];
+        $issueList = DB::table('issues')
+            ->join('users', 'issues.user_id', '=', 'users.id')
+            ->select('users.*', 'issues.*')
+            ->where('users.area_number',$areaNumber)
+            ->where('issues.status',1)
+            ->get();
+
+           return view('issue-solved',['data'=>$issueList]);
+    }
+
     public function myIssue(){
         $userId = auth()->id();
         $issueList = Issue::where('user_id',$userId)->get();

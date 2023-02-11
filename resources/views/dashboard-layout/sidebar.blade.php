@@ -12,7 +12,7 @@
             <i class="fa-solid fa-list pe-2"></i>
             <span class="hide-text">নতুন অভিযোগ</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
+        <a href="{{route('issue-solved')}}" class="list-group-item list-group-item-action bg-transparent d-flex align-items-center">
             <i class="fa-solid fa-list-check pe-2" aria-hidden="true"></i>
             <span class="hide-text">সমাধানকৃত অভিযোগ</span>
         </a>

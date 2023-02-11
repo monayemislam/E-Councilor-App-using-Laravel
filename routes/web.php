@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Councilor Routes
 Route::get('/issue-list',[IssueController::class,'index'])->middleware('isCouncilor')->name('issue-list');
+Route::get('issue-solved',[IssueController::class,'solvedIssues'])->middleware('isCouncilor')->name('issue-solved');
 
 Route::get('/create-issue',[IssueController::class,'create'])->name('create-issue');
 Route::post('/submit-issue',[IssueController::class,'store'])->name('submit-issue');
