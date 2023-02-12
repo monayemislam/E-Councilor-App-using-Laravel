@@ -39,9 +39,11 @@ class DashboardController extends Controller
             ->where('users.area_number',$userArea)
             ->where('issues.status',2)
             ->count();
+
+        $recentRegisteredUser = User::orderBy('id','desc')->take(10)->get();
         
         $totalUser = User::count();
-        return view('overview',compact('totalUser','totalNewIssue','totalSolvedIssue','totalRejectedIssue'));
+        return view('overview',compact('totalUser','totalNewIssue','totalSolvedIssue','totalRejectedIssue','recentRegisteredUser'));
     }
 
     /**
