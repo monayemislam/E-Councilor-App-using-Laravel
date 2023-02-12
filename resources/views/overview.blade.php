@@ -11,7 +11,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div><i class="fa-solid fa-users fa-4x text-info"></i></div>
                 <div>
-                  <h1>2390</h1>
+                  <h1>{{$totalUser}}</h1>
                   <a href="#" class="text-decoration-none see-details-btn">বিস্তারিত দেখুন</a>
                 </div>
               </div>
@@ -25,7 +25,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div><i class="fa-solid fa-file-circle-question fa-4x text-success"></i></div>
                 <div>
-                  <h1>5603</h1>
+                  <h1>{{$totalNewIssue}}</h1>
                   <a href="#" class="text-decoration-none see-details-btn">বিস্তারিত দেখুন</a>
                 </div>
               </div>
@@ -39,7 +39,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div><i class="fa-solid fa-file-circle-check fa-4x text-primary"></i></div>
                 <div>
-                  <h1>4594</h1>
+                  <h1>{{$totalSolvedIssue}}</h1>
                   <a href="#" class="text-decoration-none see-details-btn">বিস্তারিত দেখুন</a>
                 </div>
               </div>
@@ -53,8 +53,8 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div><i class="fa-solid fa-file-circle-xmark fa-4x text-warning"></i></div>
                 <div>
-                  <h1>890</h1>
-                  <a href="#" class="text-decoration-none see-details-btn">বিস্তারিত</a>
+                  <h1>{{$totalRejectedIssue}}</h1>
+                  <a href="#" class="text-decoration-none see-details-btn">বিস্তারিত দেখুন</a>
                 </div>
               </div>
             </div>
