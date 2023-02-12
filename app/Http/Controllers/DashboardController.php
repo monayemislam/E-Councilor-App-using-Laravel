@@ -43,7 +43,28 @@ class DashboardController extends Controller
         $recentRegisteredUser = User::orderBy('id','desc')->take(10)->get();
         
         $totalUser = User::count();
-        return view('overview',compact('totalUser','totalNewIssue','totalSolvedIssue','totalRejectedIssue','recentRegisteredUser'));
+
+        // $issuesType =  DB::table('issues')
+        // ->select('status', DB::raw('status, count(*) as total'))
+        // ->groupBy('status')
+        // ->get()
+        // ->pluck('status','total');
+
+        $monthWiseIssues = Issue::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+                    ->whereYear('created_at', date('Y'))
+                    ->groupBy(DB::raw("month_name"))
+                    ->orderBy('id','ASC')
+                    ->pluck('count', 'month_name');
+
+        for ($i=0; $i<=count($monthWiseIssues); $i++) {
+            $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+
+        $monthWiseIssuesColours = $colours;
+        $monthWiseIssuesLabels = $monthWiseIssues->keys();
+        $monthWiseIssuesData = $monthWiseIssues->values();
+
+        return view('overview',compact('totalUser','totalNewIssue','totalSolvedIssue','totalRejectedIssue','recentRegisteredUser','monthWiseIssuesLabels','monthWiseIssuesData','monthWiseIssuesColours'));
     }
 
     /**

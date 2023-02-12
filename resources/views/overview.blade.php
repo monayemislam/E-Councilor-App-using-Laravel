@@ -92,10 +92,66 @@
       </tbody>
     </table>
   </div>
-  <div class="col transaction-chart">
+  <div class="col-5 transaction-chart">
     <div class="p-2">
-      <h3 class="lead user-table-caption pt-1">অভিযোগের ধরণ অনুযায়ী চার্ট</h3>
-      <canvas id="transactionChart" class="transaction-canvas"></canvas>
+      <h3 class="lead user-table-caption pt-1">মাস অনুযায়ী নিবন্ধিত ইউজার</h3>
+      <canvas id="myChart" height="100px"></canvas>
+      <script type="text/javascript">
+  
+    var monthWiseIssuesLabels =  {{ Js::from($monthWiseIssuesLabels) }};
+    var monthWiseIssuesData =  {{ Js::from($monthWiseIssuesData) }};
+  
+    const data = {
+        labels: monthWiseIssuesLabels,
+        datasets: [{
+            label: 'নিবন্ধিত হয়েছে',
+            backgroundColor: {{ Js::from($monthWiseIssuesColours) }},
+            borderColor: 'rgb(255, 99, 132)',
+            data: monthWiseIssuesData,
+        }]
+    };
+  
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+          plugins: {
+          legend: {
+            labels: {
+              color: "#e5e7ea",
+            }
+          }
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "#e5e7ea",
+              font: {
+                size: 11,
+              },
+              beginAtZero: true
+            }
+          },
+          x: {
+            ticks: {
+              color: "#e5e7ea",
+              font: {
+                size: 11
+              },
+              beginAtZero: true
+            }
+          }
+        }
+        }
+    };
+  
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+  
+</script>
+
     </div>
   </div>
 </div>
