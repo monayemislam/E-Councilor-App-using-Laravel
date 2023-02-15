@@ -29,6 +29,7 @@ Route::get('overview',[DashboardController::class,'index'])->middleware('isCounc
 Route::get('/issue-list',[IssueController::class,'index'])->middleware('isCouncilor')->name('issue-list');
 Route::get('issue-solved',[IssueController::class,'solvedIssues'])->middleware('isCouncilor')->name('issue-solved');
 Route::get('issue-rejected',[IssueController::class,'rejectedIssues'])->middleware('isCouncilor')->name('issue-rejected');
+Route::get('/{id}/issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('issueDetails');
 
 Route::get('/create-issue',[IssueController::class,'create'])->name('create-issue');
 Route::post('/submit-issue',[IssueController::class,'store'])->name('submit-issue');

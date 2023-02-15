@@ -103,6 +103,14 @@ class IssueController extends Controller
         return Redirect::to('submitted-issue');
     }
 
+    //display issue details with user information
+
+    public function issueDetails($id){
+        $issueId = $id;
+        $issueDetails = Issue::with('raiser')->where('id',$issueId)->get()->first();
+        return view('issue-details',['issueDetails'=>$issueDetails]);
+    }
+
     /**
      * Display the specified resource.
      *

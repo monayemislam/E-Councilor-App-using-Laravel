@@ -20,10 +20,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $id = 0; ?>
+                        <?php $sl = 0; ?>
                         @foreach($data as $issue)
                         <tr>
-                            <td>{{$id=$id+1;}}</td>
+                            <td>{{$sl=$sl+1;}}</td>
                             <td>{{$issue->name}}</td>
                             <td>{{$issue->title}}</td>
                             <!-- <td>{{$issue->description}}</td> -->
@@ -40,7 +40,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <a href="#" class="details-btn"><i class="fa-regular fa-eye pe-2"></i>বিস্তারিত</a>
+                                    <a href="{{route('issueDetails',['id'=>$issue->id])}}" class="details-btn"><i class="fa-regular fa-eye pe-2"></i>বিস্তারিত</a>
                                 </div>
                             </td>
                         </tr>
