@@ -33,7 +33,7 @@
                                 <p class="mb-0 text-color-1">সমাধান হয়েছে</p>
                             </div>
                             <div class="col-sm-5">
-                                <p class="text-white mb-0 text-end">১০</p>
+                                <p class="text-white mb-0 text-end">{{$issueCount['solved']}}</p>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
                                 <p class="mb-0 text-color-1">সমাধান করতে হবে</p>
                             </div>
                             <div class="col-sm-5">
-                                <p class="text-white mb-0 text-end">৬</p>
+                            <p class="text-white mb-0 text-end">{{$issueCount['pending']}}</p>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                                 <p class="mb-0 text-color-1">সমাধান বাতিল হয়েছে</p>
                             </div>
                             <div class="col-sm-5">
-                                <p class="text-white mb-0 text-end">১০</p>
+                            <p class="text-white mb-0 text-end">{{$issueCount['rejected']}}</p>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                                 <p class="mb-0 text-color-1">মোট অভিযোগ</p>
                             </div>
                             <div class="col-sm-5">
-                                <p class="text-white mb-0 text-end">২৬</p>
+                                <p class="text-white mb-0 text-end">{{$issueCount['total']}}</p>
                             </div>
                         </div>
 

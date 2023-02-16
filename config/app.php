@@ -179,6 +179,9 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        //debugger
+        'Barryvdh\Debugbar\ServiceProvider',
+
     ],
 
     /*

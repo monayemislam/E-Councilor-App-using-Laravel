@@ -27,6 +27,7 @@ class IssueController extends Controller
             ->join('users', 'issues.user_id', '=', 'users.id')
             ->select('users.*', 'issues.*')
             ->where('users.area_number',$areaNumber)
+            ->where('issues.status',0)
             ->get();
         return view('issue-list',['data'=>$issueList]);
         
@@ -107,8 +108,32 @@ class IssueController extends Controller
 
     public function issueDetails($id){
         $issueId = $id;
+        $userId = Issue::where('id',$issueId)->value('user_id');
+
+        $pendingIssue_count = Issue::where('user_id', $userId)
+                    ->where('status', 0)
+                    ->count();
+        
+        $solvedIssue_count = Issue::where('user_id', $userId)
+                    ->where('status', 1)
+                    ->count();
+
+        $rejectedIssue_count = Issue::where('user_id', $userId)
+                    ->where('status', 2)
+                    ->count();
+
+        $totalIssue_count = Issue::where('user_id', $userId)
+                    ->count();
+        
+        $issueCount = [
+            'pending'=>$pendingIssue_count,
+            'solved'=>$solvedIssue_count,
+            'rejected'=>$rejectedIssue_count,
+            'total'=>$totalIssue_count
+        ];
+ 
         $issueDetails = Issue::with('raiser')->where('id',$issueId)->get()->first();
-        return view('issue-details',['issueDetails'=>$issueDetails]);
+        return view('issue-details',['issueDetails'=>$issueDetails, 'issueCount'=>$issueCount]);
     }
 
     /**
