@@ -136,6 +136,33 @@ class IssueController extends Controller
         return view('issue-details',['issueDetails'=>$issueDetails, 'issueCount'=>$issueCount]);
     }
 
+    //Approve Issue
+    public function approveIssue(Request $request){
+        $request->validate([
+            'issueID'=>'required|integer'
+        ]);
+        $issueId= $request->issueID;
+        $issueComment = $request->comment;
+        $updateIssue = DB::table('issues')
+              ->where('id', $issueId)
+              ->update(['status' => 1, 'comment'=>$issueComment]);
+        alert()->success('অভিযোগটি সমাধান হয়েছে', 'ধন্যবাদ!')->persistent("ঠিক আছে")->autoclose(5000);
+        return Redirect::to('issue-solved');
+    }
+
+      //Reject Issue
+      public function rejectIssue(Request $request){
+        $request->validate([
+            'issueID'=>'required|integer'
+        ]);
+        $issueId= $request->issueID;
+        $issueComment = $request->comment;
+        $updateIssue = DB::table('issues')
+              ->where('id', $issueId)
+              ->update(['status' => 2, 'comment'=>$issueComment]);
+        return Redirect::to('issue-rejected');
+    }
+
     /**
      * Display the specified resource.
      *

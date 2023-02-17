@@ -190,23 +190,27 @@
     <div class="modal fade" id="solvedModal" tabindex="-1" aria-labelledby="solvedModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content col-box">
+    <form method="post" action="{{route('approve-issue')}}">
+        @csrf
       <div class="modal-header modal-header-confirmation">
         <h5 class="modal-title text-color-1" id="exampleModalLabel">অভিযোগটি সমাধান হয়েছে ?</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modal-body-custom">
-        <form>
+        
           <div class="mb-3">
             <label for="message-text" class="col-form-label text-color-1">মন্তব্য</label>
-            <textarea class="form-control form-control-custom" id="message-text"></textarea>
+            <input value="{{$issueDetails->id}}" type="hidden" name="issueID">
+            <textarea class="form-control form-control-custom" name="comment"></textarea>
           </div>
-        </form>
+        
       </div>
       <div class="modal-footer modal-footer-custom">
         <button type="button" class="btn btn-sm btn-danger px-4" data-bs-dismiss="modal">না</button>
-        <button type="button" class="btn btn-sm btn-success px-4">হ্যাঁ</button>
+        <button type="submit" class="btn btn-sm btn-success px-4">হ্যাঁ</button>
       </div>
     </div>
+    </form>
   </div>
 </div>
 <!--Solved Modal End-->
@@ -214,23 +218,25 @@
 <div class="modal fade" id="rejectedModal" tabindex="-1" aria-labelledby="rejectedModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content col-box">
+    <form method="post" action="{{route('reject-issue')}}">
+        @csrf
       <div class="modal-header modal-header-confirmation">
         <h5 class="modal-title text-color-1" id="exampleModalLabel">অভিযোগটি বাতিল করতে চাচ্ছেন ?</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modal-body-custom">
-        <form>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label text-color-1">মন্তব্য</label>
-            <textarea class="form-control form-control-custom" id="message-text"></textarea>
+          <label for="message-text" class="col-form-label text-color-1">মন্তব্য</label>
+            <input value="{{$issueDetails->id}}" type="hidden" name="issueID">
+            <textarea class="form-control form-control-custom" name="comment"></textarea>
           </div>
-        </form>
       </div>
       <div class="modal-footer modal-footer-custom">
         <button type="button" class="btn btn-sm btn-danger px-4" data-bs-dismiss="modal">না</button>
-        <button type="button" class="btn btn-sm btn-success px-4">হ্যাঁ</button>
+        <button type="submit" class="btn btn-sm btn-success px-4">হ্যাঁ</button>
       </div>
     </div>
+    </form>
   </div>
 </div>
 <!--Reject Modal End-->
