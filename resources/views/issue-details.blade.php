@@ -177,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-end">
+                    <div  @if (Route::currentRouteName() == 'issueDetails') class="d-flex justify-content-end visible" @else class="invisible" @endif>
                         <button type="button" class="btn btn-danger btn-sm me-2" data-bs-toggle="modal" data-bs-target="#rejectedModal" data-bs-whatever="@getbootstrap">বাতিল করুন</button>
                         <button type="button" class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#solvedModal">সমাধান হয়েছে</button>
                     </div>

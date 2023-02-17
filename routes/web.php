@@ -32,6 +32,8 @@ Route::get('issue-rejected',[IssueController::class,'rejectedIssues'])->middlewa
 Route::get('/{id}/issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('issueDetails');
 Route::post('/approve-issue',[IssueController::class,'approveIssue'])->middleware('isCouncilor')->name('approve-issue');
 Route::post('/reject-issue',[IssueController::class,'rejectIssue'])->middleware('isCouncilor')->name('reject-issue');
+Route::get('/{id}/approved-issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('approved-issue-details');
+Route::get('/{id}/rejected-issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('rejected-issue-details');
 
 Route::get('/create-issue',[IssueController::class,'create'])->name('create-issue');
 Route::post('/submit-issue',[IssueController::class,'store'])->name('submit-issue');

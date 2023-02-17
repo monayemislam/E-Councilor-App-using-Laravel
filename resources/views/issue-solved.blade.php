@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <a href="#" class="details-btn"><i class="fa-regular fa-eye pe-2"></i>বিস্তারিত</a>
+                                    <a href="{{route('approved-issue-details',['id'=>$issue->id])}}" class="details-btn"><i class="fa-regular fa-eye pe-2"></i>বিস্তারিত</a>
                                 </div>
                             </td>
                         </tr>
