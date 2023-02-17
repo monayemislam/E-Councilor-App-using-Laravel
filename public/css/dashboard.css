@@ -306,3 +306,26 @@ transition: 0.4s all;
 transform: scale(1.1);
 
 }
+
+.modal-header-confirmation{
+  background-color: #293846;
+  color: #c5c5c5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.modal-body-custom{
+  background-color: #293846;
+  color: #c5c5c5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.modal-footer-custom{
+  background-color: #293846;
+  color: #c5c5c5;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.form-control-custom{
+  background-color: #293846;
+  color: #c5c5c5;
+  border: 0.1px solid #c5c5c5;
+}
