@@ -7,7 +7,8 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-user-circle pe-2"></i>Monayem Islam
+                        <i class="fa-solid fa-user-circle pe-2"></i>
+                        {{ (isset(Auth::user()->name)) ? Auth::user()->name : 'Guest' }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-white user-dropdown" aria-labelledby="userDropDown">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
