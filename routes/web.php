@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IssueController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,11 @@ Route::post('/reject-issue',[IssueController::class,'rejectIssue'])->middleware(
 Route::get('/{id}/approved-issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('approved-issue-details');
 Route::get('/{id}/rejected-issue-details',[IssueController::class,'issueDetails'])->middleware('isCouncilor')->name('rejected-issue-details');
 
+Route::get('profile',[ProfileController::class, 'index'])->name('profile');
+
 Route::get('/create-issue',[IssueController::class,'create'])->name('create-issue');
 Route::post('/submit-issue',[IssueController::class,'store'])->name('submit-issue');
+
 
 Route::get('/submitted-issue',[IssueController::class,'myIssue'])->name('submitted-issue');
 

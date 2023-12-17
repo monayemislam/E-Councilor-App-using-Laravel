@@ -11,7 +11,7 @@
                         {{ (isset(Auth::user()->name)) ? Auth::user()->name : 'Guest' }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-white user-dropdown" aria-labelledby="userDropDown">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
